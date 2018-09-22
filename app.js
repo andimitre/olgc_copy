@@ -9,7 +9,9 @@ const fileUpload = require('express-fileupload');
 const config = JSON.parse(fs.readFileSync(__dirname + '/public/src/data/config.json', 'utf8'));
 
 const app = express();
-const port = process.env.PORT || 3000;
+const port = process.env.PORT || 5000;
+
+
 // const events = JSON.parse(fs.readFileSync(__dirname + '/public/src/data/events.json', 'utf8'));
 // const latest = events[events.length - 1]
 
@@ -100,6 +102,7 @@ app.use(function(req, res, next){
     res.status(404).render('404', {title});
 });
 
-app.listen(3000, () => {
+
+app.listen(port, () => {
   debug(`listening on port ${chalk.green(port)}`);
 });

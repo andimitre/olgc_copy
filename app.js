@@ -61,9 +61,9 @@ app.use('/admin', adminRouter);
 app.use('/form-submit', submitRouter);
 
 // routes
-// app.get('/', (req, res) => {
-//   res.render('index', {title});
-// });
+app.get('/', (req, res) => {
+  res.render('about', {title});
+});
 
 app.post('/upload', function(req, res) {
 

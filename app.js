@@ -43,6 +43,7 @@ const aboutRouter = require(__dirname + '/public/src/routes/aboutRoutes')(title)
 // const sacramentalLifeRouter = require(__dirname + '/public/src/routes/sacramentalLifeRouter')(title, latest);
 const galleryRouter = require(__dirname + '/public/src/routes/galleryRoutes')(title);
 const contactRouter = require(__dirname + '/public/src/routes/contactRoutes')(title);
+const registrationRouter = require(__dirname + '/public/src/routes/registrationRoutes')(title);
 
 app.use(fileUpload());
 app.use(morgan('tiny'));
@@ -61,6 +62,7 @@ app.use('/gallery', galleryRouter);
 app.use('/contact', contactRouter);
 app.use('/admin', adminRouter);
 app.use('/form-submit', submitRouter);
+app.use('/registration', registrationRouter);
 
 // routes
 app.get('/', (req, res) => {
@@ -85,7 +87,6 @@ app.post('/upload', function(req, res) {
   }
 });
 
-
 app.get('/weekly-bulletin', (req, res) => {
   var filePath = '/public/bulletin.pdf';
   fs.readFile(__dirname + filePath , function (err,data){
@@ -94,14 +95,9 @@ app.get('/weekly-bulletin', (req, res) => {
   });
 });
 
-// app.get('/blog', (req, res) => {
-//   res.render('blog', {title});
-// });
-
 app.use(function(req, res, next){
     res.status(404).render('404', {title});
 });
-
 
 app.listen(port, () => {
   debug(`listening on port ${chalk.green(port)}`);

@@ -34,7 +34,7 @@ function router(title) {
 
       var mailOptions = {
         from: user.email,
-        to: config.user[0].user,
+        to: config.user[0].user || process.env.user,
         subject: 'Contact Form',
         text: user.message
       };

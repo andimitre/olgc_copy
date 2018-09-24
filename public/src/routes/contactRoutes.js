@@ -27,8 +27,8 @@ function router(title) {
       var transporter = nodemailer.createTransport({
         service: 'gmail',
         auth: {
-          user: config.user[0].user,
-          pass: config.user[0].pass
+          user: config.user[0].user || process.env.user,
+          pass: config.user[0].pass || process.env.pass
         }
       });
 

@@ -17,12 +17,12 @@ function router(title) {
 
   contactRouter.route('/')
   .post((req, res) => {
-      const user = {
+      const formUser = {
         name: req.body.name,
         email: req.body.email,
         message: req.body.message
       }
-
+      
       // send email
       var transporter = nodemailer.createTransport({
         service: 'gmail',
@@ -33,10 +33,10 @@ function router(title) {
       });
 
       var mailOptions = {
-        from: user.email,
+        from: formUser.email,
         to: config.user[0].user || process.env.user,
         subject: 'Contact Form',
-        text: user.message
+        text: "message: " + formUser.message + "\n" + "from: " + formUser.email
       };
 
       transporter.sendMail(mailOptions, function(error, info){

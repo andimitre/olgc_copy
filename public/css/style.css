@@ -90,7 +90,7 @@ ol {
 	text-transform: uppercase;
 	color: #fff;
 	border-radius: 2px;
-	background: #dd3e3e;
+	background: #2980b9;
 	text-align: center;
 }
 
@@ -104,7 +104,7 @@ ol {
 
 .site-btn.sb-line {
 	background-color: transparent;
-	border: 2px solid #dd3e3e;
+	border: 2px solid #2980b9;
 	color: #fff;
 	letter-spacing: 2px;
 }
@@ -149,19 +149,19 @@ ol {
 	0% {
 		-webkit-transform: rotate(0deg);
 		        transform: rotate(0deg);
-		border: 4px solid #f44336;
+		border: 4px solid #3498db;
 		border-left-color: transparent;
 	}
 	50% {
 		-webkit-transform: rotate(180deg);
 		        transform: rotate(180deg);
-		border: 4px solid #673ab7;
+		border: 4px solid #2980b9;
 		border-left-color: transparent;
 	}
 	100% {
 		-webkit-transform: rotate(360deg);
 		        transform: rotate(360deg);
-		border: 4px solid #f44336;
+		border: 4px solid #34495e;
 		border-left-color: transparent;
 	}
 }
@@ -169,17 +169,17 @@ ol {
 @-webkit-keyframes loader {
 	0% {
 		-webkit-transform: rotate(0deg);
-		border: 4px solid #f44336;
+		border: 4px solid #3498db;
 		border-left-color: transparent;
 	}
 	50% {
 		-webkit-transform: rotate(180deg);
-		border: 4px solid #673ab7;
+		border: 4px solid #2980b9;
 		border-left-color: transparent;
 	}
 	100% {
 		-webkit-transform: rotate(360deg);
-		border: 4px solid #f44336;
+		border: 4px solid #34495e;
 		border-left-color: transparent;
 	}
 }
@@ -199,7 +199,7 @@ ol {
 .section-title span {
 	font-size: 16px;
 	font-weight: 700;
-	color: #dd3e3e;
+	color: #2980b9;
 	margin-bottom: 10px;
 	display: block;
 }
@@ -234,7 +234,7 @@ ol {
 
 /* header top */
 .top-nav-section {
-	background: #3c1919;
+	background: #34495e;
 	padding: 15px 0;
 }
 
@@ -287,7 +287,7 @@ ol {
 	text-transform: uppercase;
 	font-size: 14px;
 	font-weight: 600;
-	color: #dd3e3e;
+	color: #2980b9;
 	top: -9px;
 	position: relative;
 }
@@ -351,11 +351,11 @@ ol {
 }
 
 .main-menu ul li a:hover {
-	color: #dd3e3e;
+	color: #2980b9;
 }
 
 .main-menu ul li.active a {
-	color: #dd3e3e;
+	color: #2980b9;
 }
 
 /*---------------------
@@ -408,7 +408,7 @@ ol {
 	Event Section
 -----------------------*/
 .event-section {
-	background: #dd3e3e;
+	background: #2980b9;
 	padding: 20px 0;
 }
 
@@ -460,7 +460,7 @@ ol {
 .event-date h2 {
 	display: block;
 	background: #fff;
-	color: #dd3e3e;
+	color: #2980b9;
 	padding: 8px 0;
 	font-weight: 700;
 	margin-bottom: 5px;
@@ -508,7 +508,7 @@ ol {
 }
 
 .service-box h4 i {
-	color: #dd3e3e;
+	color: #2980b9;
 	margin-right: 10px;
 }
 
@@ -522,7 +522,7 @@ ol {
 }
 
 .service-box .s-readmore i {
-	color: #dd3e3e;
+	color: #2980b9;
 }
 
 /*---------------------
@@ -568,7 +568,7 @@ ol {
 }
 
 .sermon-info li span {
-	color: #dd3e3e;
+	color: #2980b9;
 }
 
 .icon-links {
@@ -595,7 +595,7 @@ ol {
 }
 
 .icon-links a:hover {
-	background: #dd3e3e;
+	background: #2980b9;
 	color: #fff;
 }
 
@@ -623,7 +623,7 @@ ol {
 	display: inline-block;
 	float: left;
 	text-align: center;
-	background: #dd3e3e;
+	background: #2980b9;
 	color: #fff;
 	text-transform: uppercase;
 	font-weight: 700;
@@ -661,7 +661,7 @@ ol {
 }
 
 .event-list .el-metas .el-meta i {
-	color: #dd3e3e;
+	color: #2980b9;
 }
 
 .event-list .el-metas .el-meta:last-child {
@@ -673,7 +673,7 @@ ol {
 }
 
 .event-list .site-btn {
-	color: #dd3e3e;
+	color: #2980b9;
 }
 
 /*---------------------
@@ -728,7 +728,7 @@ ol {
 }
 
 .donate-info li span {
-	color: #dd3e3e;
+	color: #2980b9;
 }
 
 .donate-card {
@@ -740,7 +740,7 @@ ol {
 
 .donate-card h2 {
 	font-weight: 700;
-	color: #dd3e3e;
+	color: #2980b9;
 	margin-bottom: 60px;
 }
 
@@ -768,7 +768,7 @@ ol {
 	width: 60%;
 	left: 0;
 	top: 0;
-	background: #dd3e3e;
+	background: #2980b9;
 }
 
 .donate-card .donate-progress-bar .pb-inner span {
@@ -842,7 +842,7 @@ ol {
 	font-size: 14px;
 	font-family: "Lora", serif;
 	font-style: italic;
-	color: #dd3e3e;
+	color: #2980b9;
 	margin-bottom: 10px;
 }
 
@@ -883,7 +883,7 @@ ol {
 -----------------------*/
 .newsletter-section {
 	padding: 55px 0;
-	background: #dd3e3e;
+	background: #2980b9;
 }
 
 .newsletter-section h4 {
@@ -918,7 +918,7 @@ ol {
 	font-weight: 700;
 	font-size: 14px;
 	letter-spacing: 2px;
-	color: #dd3e3e;
+	color: #2980b9;
 	border: none;
 	padding: 0 25px;
 	border-radius: 2px;
@@ -992,7 +992,7 @@ ol {
 -----------------------*/
 .footer-section {
 	padding: 20px 0;
-	background: #3c1919;
+	background: #34495e;
 }
 
 .footer-section .social {
@@ -1104,8 +1104,8 @@ ol {
 
 .pageination-list a:hover {
 	color: #fff;
-	background: #dd3e3e;
-	border: 1px solid #dd3e3e;
+	background: #2980b9;
+	border: 1px solid #2980b9;
 }
 
 /*---------------------
@@ -1134,7 +1134,7 @@ ol {
 	font-family: "Lora", serif;
 	font-style: italic;
 	margin-bottom: 0;
-	color: #dd3e3e;
+	color: #2980b9;
 }
 
 /*---------------------
@@ -1178,7 +1178,7 @@ ol {
 }
 
 .sermon-item .icon-links a:hover {
-	background: #dd3e3e;
+	background: #2980b9;
 }
 
 /*---------------------
@@ -1207,7 +1207,7 @@ ol {
 	font-size: 14px;
 	font-family: "Lora", serif;
 	font-style: italic;
-	color: #dd3e3e;
+	color: #2980b9;
 	margin-bottom: 10px;
 }
 
@@ -1239,7 +1239,7 @@ ol {
 
 .single-post blockquote {
 	margin: 30px 0;
-	border-left: 2px solid #dd3e3e;
+	border-left: 2px solid #2980b9;
 	padding: 8px 28px;
 	font-size: 18px;
 	font-family: "Lora", serif;
@@ -1250,7 +1250,7 @@ ol {
 .single-post blockquote span {
 	display: block;
 	font-family: "Open Sans", sans-serif;
-	color: #dd3e3e;
+	color: #2980b9;
 	font-style: normal;
 	font-size: 14px;
 	padding-top: 10px;
@@ -1297,7 +1297,7 @@ ol {
 
 .single-post .social-share a:hover {
 	color: #fff;
-	background: #dd3e3e;
+	background: #2980b9;
 }
 
 .single-post .post-nav {
@@ -1313,7 +1313,7 @@ ol {
 }
 
 .single-post .post-nav a i {
-	color: #dd3e3e;
+	color: #2980b9;
 }
 
 .single-post .post-nav .next-post {
@@ -1380,7 +1380,7 @@ ol {
 
 .widget ul a:hover,
 .widget ul a:hover:after {
-	color: #dd3e3e;
+	color: #2980b9;
 }
 
 .widget .search-widget {
@@ -1401,7 +1401,7 @@ ol {
 	position: absolute;
 	right: 10px;
 	top: 0;
-	color: #dd3e3e;
+	color: #2980b9;
 	height: 100%;
 	border: none;
 	background-color: transparent;
@@ -1424,7 +1424,7 @@ ol {
 	font-size: 14px;
 	font-family: "Lora", serif;
 	font-style: italic;
-	color: #dd3e3e;
+	color: #2980b9;
 	line-height: normal;
 	margin-bottom: 18px;
 }

@@ -29,7 +29,7 @@ function initialize() {
 		map.setZoom(15);
 		map.setCenter(marker.getPosition());
 	});
-	
+
 	google.maps.event.addListener(marker2, "click", function() {
 		map.setZoom(15);
 		map.setCenter(marker2.getPosition());

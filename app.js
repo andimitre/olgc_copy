@@ -30,7 +30,7 @@ const port = process.env.PORT || 5000;
 //     "minutes": minutes,
 //     "seconds": seconds
 //   }
-// 
+//
 // return timeToEvent;
 // }
 
@@ -43,7 +43,7 @@ const aboutRouter = require(__dirname + '/public/src/routes/aboutRoutes')(title)
 // const sacramentalLifeRouter = require(__dirname + '/public/src/routes/sacramentalLifeRouter')(title, latest);
 const galleryRouter = require(__dirname + '/public/src/routes/galleryRoutes')(title);
 const contactRouter = require(__dirname + '/public/src/routes/contactRoutes')(title);
-const registrationRouter = require(__dirname + '/public/src/routes/registrationRoutes')(title);
+const formRouter = require(__dirname + '/public/src/routes/formRoutes')(title);
 
 app.use(fileUpload());
 app.use(morgan('tiny'));
@@ -62,7 +62,7 @@ app.use('/gallery', galleryRouter);
 app.use('/contact', contactRouter);
 app.use('/admin', adminRouter);
 app.use('/form-submit', submitRouter);
-app.use('/registration', registrationRouter);
+app.use('/forms', formRouter);
 
 // routes
 app.get('/', (req, res) => {

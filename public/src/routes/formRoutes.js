@@ -1,18 +1,18 @@
 const express = require('express');
-const registrationRouter = express.Router();
+const formRouter = express.Router();
 const fs = require('fs');
 
 function router(title) {
-    registrationRouter.route('/')
+    formRouter.route('/')
     .get((req, res) => {
-      res.render('registration',
+      res.render('forms',
       {
         title
       });
 
     });
 
-    return registrationRouter;
+    return formRouter;
 }
 
 module.exports = router;

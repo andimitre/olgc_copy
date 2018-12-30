@@ -11,36 +11,13 @@ const config = JSON.parse(fs.readFileSync(__dirname + '/public/src/data/config.j
 const app = express();
 const port = process.env.PORT || 5000;
 
-
-// const events = JSON.parse(fs.readFileSync(__dirname + '/public/src/data/events.json', 'utf8'));
-// const latest = events[events.length - 1]
-
-// const timeToLatest = function () {
-//   const now = Date.now();
-//   const eventTime = Date.parse(latest.day + " " + latest.month + " " + latest.year + " " + latest.startTime);
-//   const delta = Math.abs(eventTime - now) / 1000;
-//   const days = Math.floor(delta / 86400);
-//   const hours = Math.floor(delta / 3600) % 24;
-//   const minutes = Math.floor(delta / 60) % 60;
-//   const seconds = delta % 60;
-
-//   const timeToEvent = {
-//     "days": days,
-//     "hours": hours,
-//     "minutes": minutes,
-//     "seconds": seconds
-//   }
-//
-// return timeToEvent;
-// }
-
-// const timeUntilEvent = timeToLatest();
 const title = "Our Lady Of Good Counsel";
-// const eventRouter = require(__dirname + '/public/src/routes/eventRoutes')(title, events, latest, timeUntilEvent);
 const adminRouter = require(__dirname + '/public/src/routes/adminRoutes')(title);
 const submitRouter = require(__dirname + '/public/src/routes/submitRouter')(title);
 const aboutRouter = require(__dirname + '/public/src/routes/aboutRoutes')(title);
-// const sacramentalLifeRouter = require(__dirname + '/public/src/routes/sacramentalLifeRouter')(title, latest);
+const educationRouter = require(__dirname + '/public/src/routes/educationRoutes')(title);
+const homeRouter = require(__dirname + '/public/src/routes/homeRoutes')(title);
+const sacramentalLifeRouter = require(__dirname + '/public/src/routes/sacramentalLifeRouter')(title);
 const galleryRouter = require(__dirname + '/public/src/routes/galleryRoutes')(title);
 const contactRouter = require(__dirname + '/public/src/routes/contactRoutes')(title);
 const formRouter = require(__dirname + '/public/src/routes/formRoutes')(title);
@@ -55,9 +32,10 @@ app.set('view engine', 'ejs');
 
 
 // routing
-// app.use('/events', eventRouter);
+app.use('/education', educationRouter);
+app.use('/home', homeRouter);
 app.use('/about', aboutRouter);
-// app.use('/sacramental-life', sacramentalLifeRouter);
+app.use('/sacramental-life', sacramentalLifeRouter);
 app.use('/gallery', galleryRouter);
 app.use('/contact', contactRouter);
 app.use('/admin', adminRouter);
@@ -66,7 +44,7 @@ app.use('/forms', formRouter);
 
 // routes
 app.get('/', (req, res) => {
-  res.render('about', {title});
+  res.render('home', {title});
 });
 
 app.post('/upload', function(req, res) {
@@ -78,7 +56,7 @@ app.post('/upload', function(req, res) {
     let sampleFile = req.files.sampleFile;
     sampleFile.mv(__dirname + '/public/bulletin.pdf', function(err) {
       if (err)
-        console.log('error in function xyz:', err, 'whilst doing abc');
+        console.log('error in uploading file:', err, '');
       res.redirect('/form-submit');
     });
   } else {

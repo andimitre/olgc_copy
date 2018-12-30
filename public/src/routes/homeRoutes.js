@@ -1,19 +1,17 @@
 const express = require('express');
-const sacramentalLifeRouter = express.Router();
+const homeRouter = express.Router();
 const fs = require('fs');
 
-
 function router(title) {
-  sacramentalLifeRouter.route('/')
+  homeRouter.route('/')
     .get((req, res) => {
-      res.render('sacramental-life',
+      res.render('home',
       {
         title
       });
-
     });
 
-    return sacramentalLifeRouter;
+    return homeRouter;
 }
 
 module.exports = router;

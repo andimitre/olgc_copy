@@ -1,7 +1,6 @@
 const express = require('express');
 const adminRouter = express.Router();
 const fs = require('fs');
-const events = JSON.parse(fs.readFileSync(__dirname + '/../data/events.json', 'utf8'));
 const config = JSON.parse(fs.readFileSync(__dirname + '/../data/config.json', 'utf8'));
 const parser = require('body-parser');
 
@@ -44,10 +43,10 @@ function router(title) {
         if (config.user[0].admin == req.body.password) {
           events.push(ev);
 
-          fs.writeFile(__dirname + '/../data/events.json', JSON.stringify(events), 'utf8', function(err) {
-        		if (err) throw err
-        		console.log('complete')
-        	});
+          // fs.writeFile(__dirname + '/../data/events.json', JSON.stringify(events), 'utf8', function(err) {
+        	// 	if (err) throw err
+        	// 	console.log('complete')
+        	// });
           res.redirect('/form-submit');
 
         } else {

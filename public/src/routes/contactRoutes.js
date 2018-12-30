@@ -2,7 +2,6 @@ const express = require('express');
 const contactRouter = express.Router();
 const fs = require('fs');
 const nodemailer = require('nodemailer');
-const events = JSON.parse(fs.readFileSync(__dirname + '/../data/events.json', 'utf8'));
 const config = JSON.parse(fs.readFileSync(__dirname + '/../data/config.json', 'utf8'));
 const parser = require('body-parser');
 
@@ -22,7 +21,7 @@ function router(title) {
         email: req.body.email,
         message: req.body.message
       }
-      
+
       // send email
       var transporter = nodemailer.createTransport({
         service: 'gmail',

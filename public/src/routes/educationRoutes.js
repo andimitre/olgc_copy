@@ -1,19 +1,18 @@
 const express = require('express');
-const sacramentalLifeRouter = express.Router();
+const educationRouter = express.Router();
 const fs = require('fs');
 
 
 function router(title) {
-  sacramentalLifeRouter.route('/')
+  educationRouter.route('/')
     .get((req, res) => {
-      res.render('sacramental-life',
+      res.render('education',
       {
         title
       });
-
     });
 
-    return sacramentalLifeRouter;
+    return educationRouter;
 }
 
 module.exports = router;

@@ -62,14 +62,16 @@
 			<nav class="main-menu">
 				<ul>
 					<!-- <li><a href="/">Home</a></li> -->
+					<li><a href="/">Home</a></li>
 					<li><a href="/about">About Us</a></li>
-					<!-- <li><a href="/sacramental-life">Sacramental Life</a></li> -->
+					<li><a href="/sacramental-life">Sacramental Life</a></li>
 					<li><a href="/weekly-bulletin">Weekly Bulletin</a></li>
 					<!-- <li><a href="/events">Events</a></li> -->
 					<!-- <li><a href="/blog">blog</a></li> -->
 					<li><a href="/contact">Contact</a></li>
 					<li><a href="/gallery">Gallery</a></li>
 					<li><a href="/forms">Forms</a></li>
+					<li><a href="/education">Religious Education</a></li>
 				</ul>
 			</nav>
 		</div>
@@ -98,50 +100,9 @@
 	<section class="footer-top-contact-section spad">
 		<div class="container">
 			<div class="row">
-				<div class="col-md-6">
-					<div class="section-title title-left">
-						<h2>Add Event</h2>
-					</div>
-					<form class="contact-form" method="POST" action="/admin">
-						<div class="row">
-							<div class="col-sm-6">
-								 Event Date
-								<input type="date" name="date" required placeholder="Date">
-							</div>
-							<div class="col-sm-6">
-								Event Title
-								<input type="text" name="title" required placeholder="Event title">
-							</div>
-							<div class="col-sm-6">
-								Event start time
-								<input type="time" name="startTime" required placeholder="Start time">
-							</div>
-							<div class="col-sm-6">
-								Event end time
-								<input type="time" name="endTime" required placeholder="End time">
-							</div>
-							<div class="col-sm-6">
-								Event organizer
-								<input type="text" name="organizer" required placeholder="Event organizer">
-							</div>
-							<div class="col-sm-6">
-								Event location
-								<input type="text" name="location" required placeholder="Event location">
-							</div>
-							<div class="col-sm-6">
-								Password
-								<input type="password" name="password" required placeholder="Password">
-							</div>
-							<div class="col-sm-12">
-								<textarea placeholder="Event description" name="description"></textarea>
-								<button type="submit" class="site-btn">Add Event</button>
-							</div>
-						</div>
-					</form>
-				</div>
 				<div class="section-title title-left">
 						<h2>Add Bulletin</h2>
-					</div>
+				</div>
 				<div class="col-md-6">
 						<form ref='uploadForm' id='uploadForm' action='/upload' method='post' encType="multipart/form-data">
 							<div class="row">

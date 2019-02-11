@@ -48,12 +48,13 @@ app.get('/', (req, res) => {
 });
 
 app.post('/upload', function(req, res) {
-
   if (config.user[0].admin == req.body.password) {
     if (!req.files) {
       return res.status(400).send('No files were uploaded.');
     }
+    
     let sampleFile = req.files.sampleFile;
+
     sampleFile.mv(__dirname + '/public/bulletin.pdf', function(err) {
       if (err)
         console.log('error in uploading file:', err, '');
@@ -61,7 +62,7 @@ app.post('/upload', function(req, res) {
     });
   } else {
     console.log("You are not authorized for this action.");
-    return;
+    res.redirect('/admin');
   }
 });
 

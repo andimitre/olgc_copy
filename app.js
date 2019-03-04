@@ -22,10 +22,12 @@ const sacramentalLifeRouter = require(__dirname + '/public/src/routes/sacramenta
 const galleryRouter = require(__dirname + '/public/src/routes/galleryRoutes')(title);
 const contactRouter = require(__dirname + '/public/src/routes/contactRoutes')(title);
 const formRouter = require(__dirname + '/public/src/routes/formRoutes')(title);
+const aws_key = process.env.aws_key || config.user[0].aws_key;
+const aws_secret = process.env.aws_secret || config.user[0].aws_secret;
 
 const s3 = new AWS.S3({
-  accessKeyId: config.user[0].aws_key,
-  secretAccessKey: config.user[0].aws_secret
+  accessKeyId: aws_key,
+  secretAccessKey: aws_secret
 });
 
 app.use(fileUpload());
@@ -35,7 +37,6 @@ app.use(parser.urlencoded({ extended: false }))
 app.use(parser.json())
 app.set('views', __dirname + '/public/' + '/src/views');
 app.set('view engine', 'ejs');
-
 
 // routing
 app.use('/education', educationRouter);

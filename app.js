@@ -8,7 +8,6 @@ const fs = require('fs');
 const fileUpload = require('express-fileupload');
 const AWS = require('aws-sdk');
 var PDFDocument = require('pdfkit');
-const config = JSON.parse(fs.readFileSync(__dirname + '/public/src/data/config.json', 'utf8'));
 const app = express();
 const port = process.env.PORT || 5000;
 
@@ -22,8 +21,8 @@ const sacramentalLifeRouter = require(__dirname + '/public/src/routes/sacramenta
 const galleryRouter = require(__dirname + '/public/src/routes/galleryRoutes')(title);
 const contactRouter = require(__dirname + '/public/src/routes/contactRoutes')(title);
 const formRouter = require(__dirname + '/public/src/routes/formRoutes')(title);
-const aws_key = process.env.aws_key || config.user[0].aws_key;
-const aws_secret = process.env.aws_secret || config.user[0].aws_secret;
+const aws_key = process.env.aws_key;
+const aws_secret = process.env.aws_secret;
 
 const s3 = new AWS.S3({
   accessKeyId: aws_key,
@@ -55,7 +54,7 @@ app.get('/', (req, res) => {
 });
 
 app.post('/upload', function(req, res) {
-  if (config.user[0].admin || process.env.admin == req.body.password) {
+  if (process.env.admin == req.body.password) {
     if (!req.files) {
       return res.status(400).send('No files were uploaded.');
     }

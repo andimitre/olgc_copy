@@ -1,7 +1,6 @@
 const express = require('express');
 const adminRouter = express.Router();
 const fs = require('fs');
-const config = JSON.parse(fs.readFileSync(__dirname + '/../data/config.json', 'utf8'));
 const parser = require('body-parser');
 
 function router(title) {
@@ -39,8 +38,8 @@ function router(title) {
         }
         console.log(ev);
         console.log(req.body.password);
-        console.log(config.user[0].admin);
-        if (config.user[0].admin == req.body.password) {
+
+        if (process.env.admin == req.body.password) {
           events.push(ev);
 
           // fs.writeFile(__dirname + '/../data/events.json', JSON.stringify(events), 'utf8', function(err) {

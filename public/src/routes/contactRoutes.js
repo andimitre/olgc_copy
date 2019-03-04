@@ -2,7 +2,6 @@ const express = require('express');
 const contactRouter = express.Router();
 const fs = require('fs');
 const nodemailer = require('nodemailer');
-const config = JSON.parse(fs.readFileSync(__dirname + '/../data/config.json', 'utf8'));
 const parser = require('body-parser');
 
 function router(title) {
@@ -26,14 +25,14 @@ function router(title) {
       var transporter = nodemailer.createTransport({
         service: 'gmail',
         auth: {
-          user: config.user[0].user || process.env.user,
-          pass: config.user[0].pass || process.env.pass
+          user: process.env.user,
+          pass: process.env.pass
         }
       });
 
       var mailOptions = {
         from: formUser.email,
-        to: config.user[0].user || process.env.user,
+        to: process.env.user,
         subject: 'Contact Form',
         text: "message: " + formUser.message + "\n" + "from: " + formUser.email
       };

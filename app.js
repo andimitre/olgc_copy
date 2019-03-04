@@ -6,8 +6,9 @@ const path = require('path');
 const parser = require('body-parser');
 const fs = require('fs');
 const fileUpload = require('express-fileupload');
+const AWS = require('aws-sdk');
+var PDFDocument = require('pdfkit');
 const config = JSON.parse(fs.readFileSync(__dirname + '/public/src/data/config.json', 'utf8'));
-
 const app = express();
 const port = process.env.PORT || 5000;
 
@@ -21,6 +22,11 @@ const sacramentalLifeRouter = require(__dirname + '/public/src/routes/sacramenta
 const galleryRouter = require(__dirname + '/public/src/routes/galleryRoutes')(title);
 const contactRouter = require(__dirname + '/public/src/routes/contactRoutes')(title);
 const formRouter = require(__dirname + '/public/src/routes/formRoutes')(title);
+
+const s3 = new AWS.S3({
+  accessKeyId: config.user[0].aws_key,
+  secretAccessKey: config.user[0].aws_secret
+});
 
 app.use(fileUpload());
 app.use(morgan('tiny'));
@@ -52,14 +58,37 @@ app.post('/upload', function(req, res) {
     if (!req.files) {
       return res.status(400).send('No files were uploaded.');
     }
-    
-    let sampleFile = req.files.sampleFile;
 
+    let sampleFile = req.files.sampleFile;
     sampleFile.mv(__dirname + '/public/bulletin.pdf', function(err) {
       if (err)
         console.log('error in uploading file:', err, '');
-      res.redirect('/form-submit');
     });
+
+    var doc = new PDFDocument();
+    doc.pipe(fs.createWriteStream(__dirname + '/public/bulletin.pdf'));
+    doc.text();
+    doc.end();
+    doc.on('end', function () {
+      fs.readFile(__dirname + '/public/bulletin.pdf', function (err, data) {
+        if (err) {
+          console.log(err);
+        }
+        s3.upload({
+          Bucket: 'olgc-newark',
+          Key: 'bulletin.pdf',
+          Body: data,
+          ContentType: 'application/pdf'
+        }, function(err, data) {
+          if (err) {
+            console.log(err);
+          }
+        });
+      });
+    });
+
+    res.redirect('/form-submit');
+
   } else {
     console.log("You are not authorized for this action.");
     res.redirect('/admin');
@@ -67,10 +96,16 @@ app.post('/upload', function(req, res) {
 });
 
 app.get('/weekly-bulletin', (req, res) => {
-  var filePath = '/public/bulletin.pdf';
-  fs.readFile(__dirname + filePath , function (err,data){
-     res.contentType("application/pdf");
-     res.send(data);
+  var fileName = 'bulletin.pdf';
+  // fs.readFile(__dirname + filePath , function (err, data){
+     // res.contentType("application/pdf");
+     // res.send(data);
+  // });
+
+  s3.getObject({ Bucket: 'olgc-newark', Key: fileName }, function(err, data) {
+      if (!err)
+          res.contentType("application/pdf");
+          res.send(data.Body);
   });
 });
 

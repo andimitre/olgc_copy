@@ -55,7 +55,7 @@ app.get('/', (req, res) => {
 });
 
 app.post('/upload', function(req, res) {
-  if (config.user[0].admin == req.body.password) {
+  if (config.user[0].admin || process.env.admin == req.body.password) {
     if (!req.files) {
       return res.status(400).send('No files were uploaded.');
     }
